@@ -6,7 +6,7 @@ if __name__ == "__main__":
         numbers = []
         for arg in sys.argv[1:]:
             try:
-                nbr = int(arg)
+                nbr: int = int(arg)
                 numbers.append(nbr)
             except ValueError:
                 print(f"Oops, {arg} is not a valid number!")
