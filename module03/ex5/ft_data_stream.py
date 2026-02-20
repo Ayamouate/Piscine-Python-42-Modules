@@ -92,6 +92,7 @@ def main() -> None:
     print(f"Level-up events: {stats['levelup']}")
     print("\nMemory usage: Constant (streaming)")
     print("Processing time:  0.045 seconds")
+
     print("\n=== Generator Demonstration ===")
     print("Fibonacci sequence (first 10):", end=' ')
     fib = fibonacci(10)

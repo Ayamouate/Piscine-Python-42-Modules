@@ -52,7 +52,7 @@ def statistics() -> None:
 
 def categories() -> None:
     print("\n=== Item Categories ===")
-    new: dict = {
+    new: dict[str, dict] = {
         "Moderate": {},
         "Scarce": {}
     }

@@ -47,10 +47,10 @@ def comprehension_dict() -> None:
         k: players[k]["score"] for k in players if players[k]["score"] != 2050}
     print(f"Player scores: {player_score}")
     score_categories = {
-        "high": sum(1 for p in players.values() if p["score"] >= 2100),
-        "medium": sum(1 for p in players.values()
-                      if 1900 <= p["score"] < 2100),
-        "low": sum(1 for p in players.values() if p["score"] < 1900),
+        "high": len([p for p in players.values() if p["score"] >= 2100]),
+        "medium": len([p for p in players.values()
+                      if 1900 <= p["score"] < 2100]),
+        "low": len([p for p in players.values() if p["score"] < 1900]),
     }
     print(f"Scores Categories: {score_categories}")
     achv_cont = {

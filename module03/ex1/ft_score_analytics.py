@@ -3,7 +3,7 @@ import sys
 if __name__ == "__main__":
     print("=== Player Score Analytics ===")
     if len(sys.argv) > 1:
-        numbers = []
+        numbers: list[int] = []
         for arg in sys.argv[1:]:
             try:
                 nbr: int = int(arg)
