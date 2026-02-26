@@ -16,7 +16,7 @@ if __name__ == "__main__":
         print(f"Error: {err}")
         file = None
     finally:
-        print("\nData inscription complete. Storage unit sealed.")
+        print("Data inscription complete. Storage unit sealed.")
         print("Archive 'new_discovery.txt' ready for long-term preservation.")
         if file:
             file.close()
