@@ -1,0 +1,13 @@
+
+class GameEngine:
+    def __init__(self) -> None:
+        ...
+
+    def configure_engine(self, factory: CardFactory, strategy: GameStrategy) -> None:
+        ...
+
+    def simulate_turn(self) -> dict:
+        ...
+
+    def get_engine_status(self) -> dict:
+        ...
