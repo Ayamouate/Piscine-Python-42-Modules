@@ -23,7 +23,7 @@ class EliteCard(Card, Combatable, Magical):
         self.health -= taken
         return {
             "defender": self.name,
-            "damage_blocker": taken,
+            "damage_taken": taken,
             "damage_blocked": blocked,
             "still_alive": self.health > 0
         }

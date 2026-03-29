@@ -1,4 +1,4 @@
-from ex0.card import Card
+from ex0.Card import Card
 import random
 from typing import List, Optional
 

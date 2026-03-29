@@ -7,9 +7,9 @@ def main() -> None:
     card = EliteCard("Arcane Warrior")
 
     print("\nEliteCard capabilities:")
-    print("- Card:", ["play", "get_card_info", "is_playable"])
-    print("- Combatable:", card.get_combat_stats())
-    print("- Magical:", card.get_magic_stats())
+    print("- Card: ['play', 'get_card_info', 'is_playable']")
+    print("- Combatable: ['attack', 'defend', 'get_combat_stats']")
+    print("- Magical: ['cast_spell', 'channel_mana', 'get_magic_stats']")
 
     card.play({"phase": "combat"})
 
