@@ -53,8 +53,8 @@ class TournamentPlatform:
         total_cards = len(self.cards)
         average_rating = 0
         if total_cards > 0:
-            average_rating = sum(card.rating
-                                 for card in self.cards.values())
+            average_rating = sum(card.rating for card in
+                                 self.cards.values()) // total_cards
 
         return {
             "total_cards": total_cards,

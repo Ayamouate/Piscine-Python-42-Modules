@@ -34,7 +34,7 @@ def main() -> None:
             result = card.play(game_state)
             print(f"Play result: {result}")
 
-    print("\nPolymorphism in action: Same interface,"
+    print("\nPolymorphism in action: Same interface, "
           "different card behaviors!")
 
 

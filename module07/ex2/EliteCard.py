@@ -6,7 +6,7 @@ from ex0.Card import Card
 class EliteCard(Card, Combatable, Magical):
     def __init__(self, name: str) -> None:
         super().__init__(name, 6, "Epic")
-        self.mana = 4
+        self.mana = 8
         self.health = 10
 
     def attack(self, target) -> dict:
