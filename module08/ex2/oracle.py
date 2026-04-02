@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 
-def check_configuration() -> None:
+def check_security() -> None:
     print("\nEnvironment security check:")
     api_key = os.getenv("API_KEY")
     if api_key and api_key != "hardcoded_key":
@@ -46,11 +46,11 @@ def main() -> None:
     else:
         print("Log Level: Missing key!")
     if zion:
-        print(f"Zion: {zion}")
+        print(f"Zion Network: {zion}")
     else:
-        print("Zion: Missing key!")
+        print("Zion Network: Missing key!")
 
-    check_configuration()
+    check_security()
     print("\nThe Oracle sees all configurations.")
 
 

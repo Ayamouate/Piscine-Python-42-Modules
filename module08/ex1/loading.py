@@ -14,7 +14,7 @@ required_lib = {
 def check_dependencies() -> List[str]:
     print("\nLOADING STATUS: Loading programs...")
     print("\nChecking dependencies:")
-    missing = []
+    missing: List[str] = []
 
     for lib, des in required_lib.items():
         try:

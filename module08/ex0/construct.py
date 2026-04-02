@@ -20,10 +20,10 @@ def main() -> None:
         print("Virtual Environment: None detected")
         print("\nWARNING: You're in the global environment!"
               "\nThe machines can see everything you install.")
-        print("\nTo enter the construct, run:"
-              "\npython -m venv matrix_env"
-              "\nsource matrix_env/bin/activate # On Unix"
-              "\nmatrix_env""\nScripts""\nactivate # On Windows")
+        print("\nTo enter the construct, run:",
+              "\npython -m venv matrix_env",
+              "\nsource matrix_env/bin/activate # On Unix",
+              "\nmatrix_env\\Scripts\\activate # On Windows")
         print("\nThen run this program again.")
 
 
