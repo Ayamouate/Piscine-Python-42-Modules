@@ -20,10 +20,10 @@ class AlienContact(BaseModel):
     duration_minutes: int = Field(..., ge=1, le=1440)
     witness_count: int = Field(..., ge=1, le=100)
     message_received: Optional[str] = Field(None, max_length=500)
-    is_verified: bool = False
+    is_verified: bool = Field(default=False)
 
     @model_validator(mode="after")
-    def check_business_rules(self):
+    def check_business_rules(self) -> "AlienContact":
         if not self.contact_id.startswith("AC"):
             raise ValueError("Contact ID must start with \"AC\"")
         if self.contact_type == ContactType.PHYSICAL and not self.is_verified:
@@ -32,10 +32,10 @@ class AlienContact(BaseModel):
             self.contact_type == ContactType.TELEPATHIC
             and self.witness_count < 3
         ):
-            raise ValueError("Telepathic contact requires",
+            raise ValueError("Telepathic contact requires"
                              "at least 3 witnesses")
         if self.signal_strength > 7.0 and not self.message_received:
-            raise ValueError("Strong signals (> 7.0) should",
+            raise ValueError("Strong signals (> 7.0) should"
                              "include received messages")
         return self
 
@@ -57,7 +57,7 @@ def main() -> None:
     print("Alien Contact Log Validation")
     try:
         valid_contact = AlienContact(
-            contact_id="AC12345",
+            contact_id="AC_2024_001",
             timestamp=datetime.now(),
             location="Area 51, Nevada",
             contact_type=ContactType.RADIO,
@@ -70,7 +70,8 @@ def main() -> None:
     except ValidationError as e:
         for err in e.errors():
             print("Expected validation error:")
-            print(err["msg"])
+            error_msg = err["msg"].split(",", 1)[1].strip()
+            print(error_msg)
     try:
         invalid_contact = AlienContact(
             contact_id="AC_2024_002",
@@ -87,7 +88,8 @@ def main() -> None:
     except ValidationError as e:
         for err in e.errors():
             print("Expected validation error:")
-            print(err["msg"])
+            error_msg = err["msg"].split(",", 1)[1].strip()
+            print(error_msg)
 
 
 if __name__ == "__main__":

@@ -4,8 +4,8 @@ from typing import Optional
 
 
 class SpaceStation(BaseModel):
-    station_id: str
-    name: str
+    station_id: str = Field(..., min_length=3, max_length=10)
+    name: str = Field(..., min_length=1, max_length=50)
     crew_size: int = Field(..., ge=1, le=20)
     power_level: float = Field(..., ge=0.0, le=100.0)
     oxygen_level: float = Field(..., ge=0.0, le=100.0)
@@ -44,7 +44,7 @@ def main() -> None:
             print("Expected validation error:")
             print(err["msg"])
     try:
-        SpaceStation(
+        invalide_station = SpaceStation(
             station_id="ISS002",
             name="Broken Station",
             crew_size=25,
@@ -52,6 +52,7 @@ def main() -> None:
             oxygen_level=50.0,
             last_maintenance=datetime.now()
         )
+        display_station(invalide_station)
     except ValidationError as e:
         for err in e.errors():
             print("Expected validation error:")
